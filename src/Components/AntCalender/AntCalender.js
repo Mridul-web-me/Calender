@@ -1,12 +1,15 @@
-import { Button, Calendar, DatePicker, Modal, TimePicker } from 'antd';
+import { Button, DatePicker, Modal, TimePicker } from 'antd';
 import React, { useState } from 'react'
 import './AntCalender.css'
 import 'antd/dist/antd.css';
+import 'react-calendar/dist/Calendar.css';
+import Calendar from 'react-calendar';
 import { Controller, useForm } from 'react-hook-form';
 
 
-const AntCalender = (value) => {
+const AntCalender = () => {
 
+    const [value, onChange] = useState(new Date());
     // const [title, setTitle] = useState('')
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
@@ -131,7 +134,7 @@ const AntCalender = (value) => {
                 </form>
             </div>
         </Modal>
-        <Calendar />
+        <Calendar onChange={onChange} value={value} />
         {/* <ul className="events">
             {formattedBookings.map((item) => (
                 <li key={item.content}>
